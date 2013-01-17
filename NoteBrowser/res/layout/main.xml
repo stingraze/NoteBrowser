@@ -7,6 +7,7 @@
     <TableLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" >
+
         <TableRow
             android:id="@+id/tableRow1"
             android:layout_width="wrap_content"
@@ -19,6 +20,18 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:text="www.google.com" />
+
+            <Button
+                android:id="@+id/buttonBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="&lt;" />
+
+            <Button
+                android:id="@+id/buttonForward"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=">" />
 
             <Button
                 android:id="@+id/Go"
@@ -50,18 +63,20 @@
         android:id="@+id/WebEngine"
         android:layout_width="fill_parent"
         android:layout_height="200px" />
-
+
     <EditText
         android:id="@+id/editText1"
         android:layout_width="fill_parent"
         android:layout_height="88dp"
         android:ems="10"
         android:inputType="textMultiLine" />
-
+
     <Button
         android:id="@+id/save"
         android:layout_width="122dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="right"
+        android:layout_weight="1"
         android:text="Save Note" />
 
 </LinearLayout>

@@ -15,7 +15,7 @@ import android.content.SharedPreferences.Editor;
 
 public class NoteBrowserActivity extends Activity {
 	
-	 private EditText editText;
+	 	private EditText editText;
 	    private Button button;
 	    private SharedPreferences pref;
 
@@ -51,8 +51,11 @@ public class NoteBrowserActivity extends Activity {
 	 	Browser.setWebViewClient(new MyWebViewClient());
 	 	Browser.loadUrl("http://"+URLText.getText().toString());
 	 	Browser.requestFocus(View.FOCUS_DOWN);
+	 
  			}
  });
+         
+         
       
          editText = (EditText) findViewById(R.id.editText1);
          pref = getPreferences(MODE_PRIVATE);
@@ -70,7 +73,26 @@ public class NoteBrowserActivity extends Activity {
                  
              }
          });
-   
+
+         button = (Button) findViewById(R.id.buttonForward);
+         button.setOnClickListener(new OnClickListener() {
+             @Override
+             public void onClick(View view) {
+           
+                Browser.goForward();
+                
+             }
+         });
+         
+         button = (Button) findViewById(R.id.buttonBack);
+         button.setOnClickListener(new OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                Browser.goBack();
+                
+             }
+         });
+         
       
               
     }  
