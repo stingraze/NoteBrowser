@@ -11,13 +11,16 @@ import android.widget.EditText;
 import android.widget.Toast;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-
+import java.lang.String;
 
 public class NoteBrowserActivity extends Activity {
 	
 	 	private EditText editText;
 	    private Button button;
 	    private SharedPreferences pref;
+	    EditText URLText;
+	    Button GoButton;
+	    WebView Browser;
 
     /** Called when the activity is first created. */
 	 private class MyWebViewClient extends WebViewClient {
@@ -26,11 +29,15 @@ public class NoteBrowserActivity extends Activity {
 	         view.loadUrl(url);
 	         return true;
 	     }
+	     
+	     public void onPageFinished(WebView view, String url) {
+	    	 url = url.replace("https://","");
+	    	 url = url.replace("http://","");
+	    	 URLText.setText(url);
+	     }
 	 }
 	 
-    EditText URLText;
-    Button GoButton;
-    WebView Browser;
+   
     
     
     
@@ -51,10 +58,11 @@ public class NoteBrowserActivity extends Activity {
 	 	Browser.setWebViewClient(new MyWebViewClient());
 	 	Browser.loadUrl("http://"+URLText.getText().toString());
 	 	Browser.requestFocus(View.FOCUS_DOWN);
-	 
+	 	String url = Browser.getUrl();
+	 	
  			}
  });
-         
+     
          
       
          editText = (EditText) findViewById(R.id.editText1);
