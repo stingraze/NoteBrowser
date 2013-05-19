@@ -15,7 +15,7 @@ import java.lang.String;
 
 public class NoteBrowserActivity extends Activity {
 	
-	 	private EditText editText;
+	    private EditText editText;
 	    private Button button;
 	    private SharedPreferences pref;
 	    EditText URLText;
